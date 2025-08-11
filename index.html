@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STORIO - Bedtime Stories for Kids</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>STORIO</h1>
+            </div>
+            <div class="header-actions">
+                <button class="demo-btn">Watch Demo</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Background Animation Elements -->
+        <div class="moon"></div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="gradient-text dancing-text">Let's Unlock The Universe</span>
+                </h1>
+                <h2 class="hero-subtitle">
+                    <span class="gradient-text dancing-text">For Your Little Dreamers</span>
+                </h2>
+                <p class="hero-description">
+                    Transform bedtime into an enchanting adventure with our AI-powered storytelling app. 
+                    Create personalized stories that spark imagination and sweet dreams.
+                </p>
+                <div class="hero-buttons">
+                    <button class="cta-btn primary">Sign In</button>
+                    <button class="cta-btn secondary">Sign Up</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose STORIO?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎭</div>
+                    <h3>Personalized Stories</h3>
+                    <p>AI creates unique stories featuring your child's name and favorite characters</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎵</div>
+                    <h3>Soothing Narration</h3>
+                    <p>Calming voices and gentle music to help children drift into peaceful sleep</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Beautiful Illustrations</h3>
+                    <p>Vibrant, dreamy artwork that brings stories to life</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Easy to Use</h3>
+                    <p>Simple interface designed for both parents and children</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready for Bedtime Magic?</h2>
+                <p>Join thousands of families creating magical bedtime moments</p>
+                <button class="cta-btn primary large">Download Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 STORIO. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sign In Popup -->
+    <div class="popup-overlay" id="signInPopup">
+        <div class="popup-container">
+            <div class="popup-header">
+                <h2 class="popup-title">Sign In to STORIO</h2>
+                <button class="popup-close" id="closeSignInPopup">&times;</button>
+            </div>
+            <div class="popup-content">
+                <form class="signin-form">
+                    <div class="form-group">
+                        <label for="signin-email">Email</label>
+                        <input type="email" id="signin-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signin-password">Password</label>
+                        <input type="password" id="signin-password" name="password" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="remember">
+                            <span class="checkmark"></span>
+                            Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="popup-btn primary">Sign In</button>
+                </form>
+                
+                <div class="divider">
+                    <span>or</span>
+                </div>
+                
+                <div class="social-signin">
+                    <button class="social-btn google">
+                        <span class="social-icon">🔍</span>
+                        Continue with Google
+                    </button>
+                    <button class="social-btn facebook">
+                        <span class="social-icon">📘</span>
+                        Continue with Facebook
+                    </button>
+                    <button class="social-btn apple">
+                        <span class="social-icon">🍎</span>
+                        Continue with Apple
+                    </button>
+                </div>
+                
+                <div class="signup-link">
+                    <p>Don't have an account? <a href="#" class="gradient-text" id="switchToSignUp">Sign Up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign Up Popup -->
+    <div class="popup-overlay" id="signUpPopup">
+        <div class="popup-container">
+            <div class="popup-header">
+                <h2 class="popup-title">Join STORIO</h2>
+                <button class="popup-close" id="closeSignUpPopup">&times;</button>
+            </div>
+            <div class="popup-content">
+                <form class="signup-form">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-confirm-password">Confirm Password</label>
+                        <input type="password" id="signup-confirm-password" name="confirm-password" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="terms" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#" class="gradient-text">Terms of Service</a> and <a href="#" class="gradient-text">Privacy Policy</a>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="newsletter">
+                            <span class="checkmark"></span>
+                            Subscribe to our newsletter for updates
+                        </label>
+                    </div>
+                    <button type="submit" class="popup-btn primary">Create Account</button>
+                </form>
+                
+                <div class="divider">
+                    <span>or</span>
+                </div>
+                
+                <div class="social-signin">
+                    <button class="social-btn google">
+                        <span class="social-icon">🔍</span>
+                        Continue with Google
+                    </button>
+                    <button class="social-btn facebook">
+                        <span class="social-icon">📘</span>
+                        Continue with Facebook
+                    </button>
+                    <button class="social-btn apple">
+                        <span class="social-icon">🍎</span>
+                        Continue with Apple
+                    </button>
+                </div>
+                
+                <div class="signup-link">
+                    <p>Already have an account? <a href="#" class="gradient-text" id="switchToSignIn">Sign In</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Regular script (no modules) -->
+    <script src="script.js"></script>
+</body>
+</html>
