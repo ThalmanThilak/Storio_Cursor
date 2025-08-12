@@ -18,4 +18,94 @@ const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     await supabase.auth.signOut();
     window.location.href = 'index.html';
   });
+
+  // Profile functionality
+  const addChildBtn = document.getElementById('addChildBtn');
+  const profileContainer = document.getElementById('profileContainer');
+
+  // Load existing profiles
+  await loadProfiles();
+
+  // Add child button event listener
+  addChildBtn?.addEventListener('click', () => {
+    // For now, just show an alert. You can implement a modal or redirect to a profile creation page
+    alert('Add Child functionality will be implemented next!');
+  });
 })();
+
+// Function to load and display profiles
+async function loadProfiles() {
+  const profileContainer = document.getElementById('profileContainer');
+  
+  try {
+    // For now, we'll simulate no profiles. Later you can fetch from Supabase
+    const profiles = []; // This would come from your database
+    
+    if (profiles.length === 0) {
+      // Show "Add your Child" message
+      profileContainer.innerHTML = `
+        <div class="no-profiles-message">
+          <p>No child profiles found</p>
+          <button class="cta-btn primary" id="addChildBtn">
+            <span class="btn-icon">👶</span>
+            Add your Child
+          </button>
+        </div>
+      `;
+      
+      // Re-attach event listener
+      const newAddChildBtn = document.getElementById('addChildBtn');
+      newAddChildBtn?.addEventListener('click', () => {
+        alert('Add Child functionality will be implemented next!');
+      });
+    } else {
+      // Show profile cards
+      displayProfiles(profiles);
+    }
+  } catch (error) {
+    console.error('Error loading profiles:', error);
+    // Show error state
+    profileContainer.innerHTML = `
+      <div class="no-profiles-message">
+        <p>Error loading profiles</p>
+        <button class="cta-btn primary" onclick="location.reload()">Try Again</button>
+      </div>
+    `;
+  }
+}
+
+// Function to display profile cards
+function displayProfiles(profiles) {
+  const profileContainer = document.getElementById('profileContainer');
+  
+  const profilesHTML = profiles.map(profile => `
+    <div class="profile-card" onclick="selectProfile('${profile.id}')">
+      <div class="profile-avatar">${profile.avatar || '👶'}</div>
+      <div class="profile-name">${profile.name}</div>
+      <div class="profile-age">${profile.age} years old</div>
+    </div>
+  `).join('');
+  
+  profileContainer.innerHTML = `
+    <div class="profile-cards">
+      ${profilesHTML}
+      <div class="profile-card add-profile-card" onclick="addNewProfile()">
+        <div class="profile-avatar">➕</div>
+        <div class="profile-name">Add New Child</div>
+        <div class="profile-age">Create new profile</div>
+      </div>
+    </div>
+  `;
+}
+
+// Function to select a profile
+function selectProfile(profileId) {
+  console.log('Selected profile:', profileId);
+  // Implement profile selection logic
+  alert(`Selected profile: ${profileId}`);
+}
+
+// Function to add new profile
+function addNewProfile() {
+  alert('Add Child functionality will be implemented next!');
+}

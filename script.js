@@ -355,12 +355,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             const result = await signInWithEmail(email, password);
+            console.log('Sign in result:', result);
             
             if (result.success) {
+                console.log('Sign in successful, redirecting to app.html...');
                 // Redirect to app page on successful sign-in
-                window.location.href = 'app.html';
+                try {
+                    window.location.href = 'app.html';
+                } catch (redirectError) {
+                    console.error('Redirect failed:', redirectError);
+                    // Fallback redirect
+                    window.location.replace('app.html');
+                }
                 return;
             } else {
+                console.error('Sign in failed:', result.error);
                 alert(`Sign in failed: ${result.error}`);
             }
         } catch (error) {
