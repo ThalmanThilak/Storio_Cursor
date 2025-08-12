@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STORIO - Bedtime Stories for Kids</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2.9">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Supabase CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -26,16 +26,69 @@
     <section class="hero">
         <!-- Background Animation Elements -->
         <div class="moon"></div>
-        <div class="star">⭐</div>
-        <div class="star">⭐</div>
-        <div class="star">⭐</div>
-        <div class="star">⭐</div>
-        <div class="star">⭐</div>
-        <div class="star">⭐</div>
-        <div class="star">⭐</div>
-        <div class="star">⭐</div>
-        <div class="star">⭐</div>
-        <div class="star">⭐</div>
+        
+        <!-- 3D Stars -->
+        <div class="star3d" style="--delay: 0s; --size: 2px; --x: 10%; --y: 20%;"></div>
+        <div class="star3d" style="--delay: 0.5s; --size: 3px; --x: 25%; --y: 15%;"></div>
+        <div class="star3d" style="--delay: 1s; --size: 1.5px; --x: 40%; --y: 30%;"></div>
+        <div class="star3d" style="--delay: 1.5s; --size: 2.5px; --x: 55%; --y: 25%;"></div>
+        <div class="star3d" style="--delay: 2s; --size: 2px; --x: 70%; --y: 35%;"></div>
+        <div class="star3d" style="--delay: 2.5s; --size: 3.5px; --x: 85%; --y: 20%;"></div>
+        <div class="star3d" style="--delay: 3s; --size: 1.8px; --x: 15%; --y: 45%;"></div>
+        <div class="star3d" style="--delay: 3.5s; --size: 2.2px; --x: 30%; --y: 55%;"></div>
+        <div class="star3d" style="--delay: 4s; --size: 3px; --x: 45%; --y: 50%;"></div>
+        <div class="star3d" style="--delay: 4.5s; --size: 1.5px; --x: 60%; --y: 60%;"></div>
+        <div class="star3d" style="--delay: 5s; --size: 2.8px; --x: 75%; --y: 45%;"></div>
+        <div class="star3d" style="--delay: 5.5s; --size: 2px; --x: 90%; --y: 55%;"></div>
+        <div class="star3d" style="--delay: 6s; --size: 1.2px; --x: 5%; --y: 70%;"></div>
+        <div class="star3d" style="--delay: 6.5s; --size: 3.2px; --x: 20%; --y: 80%;"></div>
+        <div class="star3d" style="--delay: 7s; --size: 2.3px; --x: 35%; --y: 75%;"></div>
+        <div class="star3d" style="--delay: 7.5s; --size: 1.7px; --x: 50%; --y: 85%;"></div>
+        <div class="star3d" style="--delay: 8s; --size: 2.9px; --x: 65%; --y: 70%;"></div>
+        <div class="star3d" style="--delay: 8.5s; --size: 1.9px; --x: 80%; --y: 80%;"></div>
+        <div class="star3d" style="--delay: 9s; --size: 3.1px; --x: 95%; --y: 75%;"></div>
+        
+        <!-- Blue 3D Stars -->
+        <div class="star3d blue" style="--delay: 0.2s; --size: 2.1px; --x: 12%; --y: 18%;"></div>
+        <div class="star3d blue" style="--delay: 0.7s; --size: 2.8px; --x: 28%; --y: 12%;"></div>
+        <div class="star3d blue" style="--delay: 1.2s; --size: 1.6px; --x: 42%; --y: 28%;"></div>
+        <div class="star3d blue" style="--delay: 1.7s; --size: 3.3px; --x: 58%; --y: 22%;"></div>
+        <div class="star3d blue" style="--delay: 2.2s; --size: 2.4px; --x: 72%; --y: 32%;"></div>
+        <div class="star3d blue" style="--delay: 2.7s; --size: 1.8px; --x: 88%; --y: 18%;"></div>
+        <div class="star3d blue" style="--delay: 3.2s; --size: 2.7px; --x: 18%; --y: 42%;"></div>
+        <div class="star3d blue" style="--delay: 3.7s; --size: 1.4px; --x: 32%; --y: 52%;"></div>
+        <div class="star3d blue" style="--delay: 4.2s; --size: 2.6px; --x: 48%; --y: 48%;"></div>
+        <div class="star3d blue" style="--delay: 4.7s; --size: 3.4px; --x: 62%; --y: 58%;"></div>
+        <div class="star3d blue" style="--delay: 5.2s; --size: 1.9px; --x: 78%; --y: 42%;"></div>
+        <div class="star3d blue" style="--delay: 5.7s; --size: 2.5px; --x: 92%; --y: 52%;"></div>
+        <div class="star3d blue" style="--delay: 6.2s; --size: 1.3px; --x: 8%; --y: 68%;"></div>
+        <div class="star3d blue" style="--delay: 6.7s; --size: 2.9px; --x: 22%; --y: 78%;"></div>
+        <div class="star3d blue" style="--delay: 7.2s; --size: 1.7px; --x: 38%; --y: 72%;"></div>
+        <div class="star3d blue" style="--delay: 7.7s; --size: 2.8px; --x: 52%; --y: 82%;"></div>
+        <div class="star3d blue" style="--delay: 8.2s; --size: 1.5px; --x: 68%; --y: 68%;"></div>
+        <div class="star3d blue" style="--delay: 8.7s; --size: 3.2px; --x: 82%; --y: 78%;"></div>
+        <div class="star3d blue" style="--delay: 9.2s; --size: 2.1px; --x: 96%; --y: 72%;"></div>
+        
+        <!-- Yellow 3D Stars -->
+        <div class="star3d yellow" style="--delay: 0.3s; --size: 2.3px; --x: 14%; --y: 16%;"></div>
+        <div class="star3d yellow" style="--delay: 0.8s; --size: 1.7px; --x: 26%; --y: 14%;"></div>
+        <div class="star3d yellow" style="--delay: 1.3s; --size: 3.1px; --x: 44%; --y: 26%;"></div>
+        <div class="star3d yellow" style="--delay: 1.8s; --size: 2.2px; --x: 56%; --y: 24%;"></div>
+        <div class="star3d yellow" style="--delay: 2.3s; --size: 1.8px; --x: 74%; --y: 34%;"></div>
+        <div class="star3d yellow" style="--delay: 2.8s; --size: 2.6px; --x: 86%; --y: 16%;"></div>
+        <div class="star3d yellow" style="--delay: 3.3s; --size: 1.9px; --x: 16%; --y: 44%;"></div>
+        <div class="star3d yellow" style="--delay: 3.8s; --size: 2.4px; --x: 34%; --y: 54%;"></div>
+        <div class="star3d yellow" style="--delay: 4.3s; --size: 1.6px; --x: 46%; --y: 46%;"></div>
+        <div class="star3d yellow" style="--delay: 4.8s; --size: 2.9px; --x: 64%; --y: 56%;"></div>
+        <div class="star3d yellow" style="--delay: 5.3s; --size: 2.1px; --x: 76%; --y: 44%;"></div>
+        <div class="star3d yellow" style="--delay: 5.8s; --size: 1.7px; --x: 94%; --y: 54%;"></div>
+        <div class="star3d yellow" style="--delay: 6.3s; --size: 2.8px; --x: 6%; --y: 66%;"></div>
+        <div class="star3d yellow" style="--delay: 6.8s; --size: 1.4px; --x: 24%; --y: 76%;"></div>
+        <div class="star3d yellow" style="--delay: 7.3s; --size: 2.5px; --x: 36%; --y: 74%;"></div>
+        <div class="star3d yellow" style="--delay: 7.8s; --size: 1.8px; --x: 54%; --y: 84%;"></div>
+        <div class="star3d yellow" style="--delay: 8.3s; --size: 2.7px; --x: 66%; --y: 66%;"></div>
+        <div class="star3d yellow" style="--delay: 8.8s; --size: 1.9px; --x: 84%; --y: 76%;"></div>
+        <div class="star3d yellow" style="--delay: 9.3s; --size: 2.3px; --x: 94%; --y: 74%;"></div>
         
         <div class="hero-content">
             <div class="hero-text">
@@ -87,13 +140,153 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
         <div class="container">
-            <div class="cta-content">
-                <h2>Ready for Bedtime Magic?</h2>
-                <p>Join thousands of families creating magical bedtime moments</p>
-                <button class="cta-btn primary large">Download Now</button>
+            <h2 class="section-title gradient-text">What Parents Say</h2>
+            <div class="testimonials-container">
+                <div class="testimonials-track" id="testimonialsTrack">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p>"STORIO has transformed our bedtime routine! My 5-year-old now looks forward to story time every night. The personalized stories are absolutely magical!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">👩‍👧</div>
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <span>Mother of Emma, 5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p>"As a busy working parent, I love how STORIO makes storytelling effortless. My kids are captivated by the interactive elements and beautiful animations!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">👨‍👦</div>
+                                <div class="author-info">
+                                    <h4>Michael Chen</h4>
+                                    <span>Father of Lucas, 4</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p>"The educational content is amazing! My daughter has learned so much while having fun. STORIO has become our favorite family bonding activity."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">👩‍👧‍👦</div>
+                                <div class="author-info">
+                                    <h4>Maria Rodriguez</h4>
+                                    <span>Mother of Sofia & Diego</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p>"Finally, a bedtime app that actually helps kids sleep! The calming stories and gentle animations create the perfect atmosphere for bedtime."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">👨‍👧</div>
+                                <div class="author-info">
+                                    <h4>David Thompson</h4>
+                                    <span>Father of Lily, 6</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p>"The personalization features are incredible! My son loves hearing stories with his name and favorite characters. STORIO has made him excited about reading!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">👩‍👦</div>
+                                <div class="author-info">
+                                    <h4>Jennifer Park</h4>
+                                    <span>Mother of Alex, 7</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Duplicate cards for seamless scrolling -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p>"STORIO has transformed our bedtime routine! My 5-year-old now looks forward to story time every night. The personalized stories are absolutely magical!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">👩‍👧</div>
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <span>Mother of Emma, 5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p>"As a busy working parent, I love how STORIO makes storytelling effortless. My kids are captivated by the interactive elements and beautiful animations!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">👨‍👦</div>
+                                <div class="author-info">
+                                    <h4>Michael Chen</h4>
+                                    <span>Father of Lucas, 4</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p>"The educational content is amazing! My daughter has learned so much while having fun. STORIO has become our favorite family bonding activity."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">👩‍👧‍👦</div>
+                                <div class="author-info">
+                                    <h4>Maria Rodriguez</h4>
+                                    <span>Mother of Sofia & Diego</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p>"Finally, a bedtime app that actually helps kids sleep! The calming stories and gentle animations create the perfect atmosphere for bedtime."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">👨‍👧</div>
+                                <div class="author-info">
+                                    <h4>David Thompson</h4>
+                                    <span>Father of Lily, 6</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p>"The personalization features are incredible! My son loves hearing stories with his name and favorite characters. STORIO has made him excited about reading!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">👩‍👦</div>
+                                <div class="author-info">
+                                    <h4>Jennifer Park</h4>
+                                    <span>Mother of Alex, 7</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
