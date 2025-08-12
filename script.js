@@ -274,7 +274,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Check if user is already signed in
         const currentUser = await checkCurrentUser();
         if (currentUser) {
-            alert(`You are already signed in as ${currentUser.email}`);
+            // Already signed in -> go to app page
+            window.location.href = 'app.html';
             return;
         }
         
@@ -356,12 +357,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const result = await signInWithEmail(email, password);
             
             if (result.success) {
-                alert(`Successfully signed in! Welcome to STORIO, ${result.data.user.user_metadata?.full_name || result.data.user.email}!`);
-                closeAllPopups();
-                updateUIAfterAuth(result.data.user);
-                
-                // Clear the form
-                signinForm.reset();
+                // Redirect to app page on successful sign-in
+                window.location.href = 'app.html';
+                return;
             } else {
                 alert(`Sign in failed: ${result.error}`);
             }
@@ -419,8 +417,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Account created successfully! Please check your email to verify your account before signing in.');
                 closeAllPopups();
                 
-                // Clear the form
-                signupForm.reset();
+                // Optionally, you can auto-open the sign-in popup
+                openPopup(signInPopup);
             } else {
                 alert(`Sign up failed: ${result.error}`);
             }
@@ -458,7 +456,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check for existing session on page load
     checkCurrentUser().then(user => {
         if (user) {
-            updateUIAfterAuth(user);
+            // Redirect authenticated users directly to app page
+            window.location.href = 'app.html';
         }
     });
 });
