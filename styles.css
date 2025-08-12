@@ -685,6 +685,11 @@ body {
     background: rgba(255, 255, 255, 0.08);
 }
 
+.add-child-button-container {
+    margin-top: 2rem;
+    text-align: center;
+}
+
 /* Add Child Form Styles */
 .add-child-form {
     background: rgba(255, 255, 255, 0.1);

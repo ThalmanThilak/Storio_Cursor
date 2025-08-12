@@ -55,11 +55,13 @@ async function loadProfiles() {
   const profileListContainer = document.getElementById('profileListContainer');
   
   try {
-    // For now, we'll simulate no profiles. Later you can fetch from Supabase
-    const profiles = []; // This would come from your database
+    // Get profiles from window object (in a real app, this would come from Supabase)
+    const profiles = window.profiles || [];
+    
+    console.log('Loading profiles:', profiles.length, 'profiles found');
     
     if (profiles.length === 0) {
-      // The HTML is already in the page, just make sure it's visible
+      // Show "Add your Child" message
       const noProfilesMessage = document.getElementById('noProfilesMessage');
       const addChildForm = document.getElementById('addChildForm');
       
@@ -71,6 +73,7 @@ async function loadProfiles() {
       }
     } else {
       // Show profile cards
+      console.log('Displaying profiles:', profiles);
       displayProfiles(profiles);
     }
   } catch (error) {
@@ -92,7 +95,7 @@ function displayProfiles(profiles) {
   
   const profilesHTML = profiles.map(profile => `
     <div class="profile-card" onclick="selectProfile('${profile.id}')">
-      <div class="profile-avatar">${profile.avatar || '👶'}</div>
+      <div class="profile-avatar">${profile.avatar}</div>
       <div class="profile-name">${profile.name}</div>
       <div class="profile-age">${profile.age} years old</div>
     </div>
@@ -101,13 +104,20 @@ function displayProfiles(profiles) {
   profileListContainer.innerHTML = `
     <div class="profile-grid">
       ${profilesHTML}
-      <div class="profile-card add-profile-card" onclick="addNewProfile()">
-        <div class="profile-avatar">➕</div>
-        <div class="profile-name">Add New Child</div>
-        <div class="profile-age">Create new profile</div>
-      </div>
+    </div>
+    <div class="add-child-button-container">
+      <button class="cta-btn primary" id="addChildBtn">
+        <span class="btn-icon">👶</span>
+        Add Your Child
+      </button>
     </div>
   `;
+  
+  // Re-attach event listener for the new button
+  const newAddChildBtn = document.getElementById('addChildBtn');
+  newAddChildBtn?.addEventListener('click', () => {
+    showAddChildForm();
+  });
 }
 
 // Function to select a profile
@@ -161,16 +171,33 @@ async function handleChildProfileSubmit(e) {
   }
   
   try {
-    // For now, just show success message
-    // Later you can save to Supabase
-    console.log('Creating profile:', { childName, childGender, childAge, childFavorite });
+    // Create profile object
+    const newProfile = {
+      id: Date.now().toString(), // Simple ID generation
+      name: childName,
+      gender: childGender,
+      age: childAge,
+      favorite: childFavorite,
+      avatar: childName.charAt(0).toUpperCase() // First letter as avatar
+    };
     
+    console.log('Creating profile:', newProfile);
+    
+    // Add to profiles array (in a real app, this would be saved to database)
+    if (!window.profiles) {
+      window.profiles = [];
+    }
+    window.profiles.push(newProfile);
+    
+    console.log('Total profiles after adding:', window.profiles.length);
+    console.log('All profiles:', window.profiles);
+    
+    // Show success message
     alert(`Profile created successfully for ${childName}!`);
     hideAddChildForm();
     
-    // Here you would typically save to database and refresh the profile list
-    // await saveChildProfile({ childName, childGender, childAge, childFavorite });
-    // await loadProfiles();
+    // Refresh the profile display
+    await loadProfiles();
     
   } catch (error) {
     console.error('Error creating profile:', error);
