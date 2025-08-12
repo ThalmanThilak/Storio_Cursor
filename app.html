@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>STORIO - App</title>
-  <link rel="stylesheet" href="styles.css?v=1.4" />
+  <link rel="stylesheet" href="styles.css?v=1.9" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <!-- Supabase CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -33,16 +33,59 @@
     <!-- Select Profile Section -->
     <div class="select-profile-section">
       <h2 class="select-profile-title gradient-text">Select Profile</h2>
-      <div class="profile-list-container" id="profileListContainer">
-        <!-- Profiles will be loaded here dynamically -->
-        <div class="no-profiles-message">
-          <p>No child profiles found</p>
-          <button class="cta-btn primary" id="addChildBtn">
-            <span class="btn-icon">👶</span>
-            Add Your Child
-          </button>
-        </div>
-      </div>
+             <div class="profile-list-container" id="profileListContainer">
+         <!-- Profiles will be loaded here dynamically -->
+         <div class="no-profiles-message" id="noProfilesMessage">
+           <p>No child profiles found</p>
+           <button class="cta-btn primary" id="addChildBtn">
+             <span class="btn-icon">👶</span>
+             Add Your Child
+           </button>
+         </div>
+         
+         <!-- Add Child Form (hidden by default) -->
+         <div class="add-child-form" id="addChildForm" style="display: none;">
+           <div class="form-header">
+             <h3 class="form-title gradient-text">Add Your Child</h3>
+             <button class="close-btn" id="closeAddChildForm">✕</button>
+           </div>
+           <form id="childProfileForm">
+                           <div class="form-group">
+                <label for="childName">Child's Name</label>
+                <input type="text" id="childName" name="childName" placeholder="Enter your child's name" required>
+              </div>
+              <div class="form-group">
+                <label for="childGender">Gender</label>
+                <select id="childGender" name="childGender" required>
+                  <option value="">Select Gender</option>
+                  <option value="Boy">Boy</option>
+                  <option value="Girl">Girl</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="childAge">Age</label>
+                <select id="childAge" name="childAge" required>
+                  <option value="">Select Age</option>
+                  <option value="2">2 years</option>
+                  <option value="3">3 years</option>
+                  <option value="4">4 years</option>
+                  <option value="5">5 years</option>
+                  <option value="6">6 years</option>
+                  <option value="7">7 years</option>
+                  <option value="8">8 years</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="childFavorite">Favorite Character/Toy</label>
+                <input type="text" id="childFavorite" name="childFavorite" placeholder="Enter your child's favorite character or toy" required>
+              </div>
+             <div class="form-actions">
+               <button type="button" class="cta-btn secondary" id="cancelBtn">Cancel</button>
+               <button type="submit" class="cta-btn primary">Create Profile</button>
+             </div>
+           </form>
+         </div>
+       </div>
     </div>
     
 

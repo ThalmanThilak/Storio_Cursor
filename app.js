@@ -28,9 +28,26 @@ const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   // Add child button event listener
   addChildBtn?.addEventListener('click', () => {
-    // For now, just show an alert. You can implement a modal or redirect to a profile creation page
-    alert('Add Child functionality will be implemented next!');
+    showAddChildForm();
   });
+
+  // Close form button
+  const closeAddChildForm = document.getElementById('closeAddChildForm');
+  closeAddChildForm?.addEventListener('click', () => {
+    hideAddChildForm();
+  });
+
+  // Cancel button
+  const cancelBtn = document.getElementById('cancelBtn');
+  cancelBtn?.addEventListener('click', () => {
+    hideAddChildForm();
+  });
+
+
+
+  // Form submission
+  const childProfileForm = document.getElementById('childProfileForm');
+  childProfileForm?.addEventListener('submit', handleChildProfileSubmit);
 })();
 
 // Function to load and display profiles
@@ -42,22 +59,16 @@ async function loadProfiles() {
     const profiles = []; // This would come from your database
     
     if (profiles.length === 0) {
-      // Show "Add your Child" message
-      profileListContainer.innerHTML = `
-        <div class="no-profiles-message">
-          <p>No child profiles found</p>
-          <button class="cta-btn primary" id="addChildBtn">
-            <span class="btn-icon">👶</span>
-            Add Your Child
-          </button>
-        </div>
-      `;
+      // The HTML is already in the page, just make sure it's visible
+      const noProfilesMessage = document.getElementById('noProfilesMessage');
+      const addChildForm = document.getElementById('addChildForm');
       
-      // Re-attach event listener
-      const newAddChildBtn = document.getElementById('addChildBtn');
-      newAddChildBtn?.addEventListener('click', () => {
-        alert('Add Child functionality will be implemented next!');
-      });
+      if (noProfilesMessage) {
+        noProfilesMessage.style.display = 'flex';
+      }
+      if (addChildForm) {
+        addChildForm.style.display = 'none';
+      }
     } else {
       // Show profile cards
       displayProfiles(profiles);
@@ -65,12 +76,13 @@ async function loadProfiles() {
   } catch (error) {
     console.error('Error loading profiles:', error);
     // Show error state
-    profileListContainer.innerHTML = `
-      <div class="no-profiles-message">
+    const noProfilesMessage = document.getElementById('noProfilesMessage');
+    if (noProfilesMessage) {
+      noProfilesMessage.innerHTML = `
         <p>Error loading profiles</p>
         <button class="cta-btn primary" onclick="location.reload()">Try Again</button>
-      </div>
-    `;
+      `;
+    }
   }
 }
 
@@ -105,7 +117,68 @@ function selectProfile(profileId) {
   alert(`Selected profile: ${profileId}`);
 }
 
+// Function to show add child form
+function showAddChildForm() {
+  const noProfilesMessage = document.getElementById('noProfilesMessage');
+  const addChildForm = document.getElementById('addChildForm');
+  
+  if (noProfilesMessage && addChildForm) {
+    noProfilesMessage.style.display = 'none';
+    addChildForm.style.display = 'block';
+  }
+}
+
+// Function to hide add child form
+function hideAddChildForm() {
+  const noProfilesMessage = document.getElementById('noProfilesMessage');
+  const addChildForm = document.getElementById('addChildForm');
+  
+  if (noProfilesMessage && addChildForm) {
+    noProfilesMessage.style.display = 'flex';
+    addChildForm.style.display = 'none';
+    
+    // Reset form
+    const form = document.getElementById('childProfileForm');
+    if (form) {
+      form.reset();
+    }
+  }
+}
+
+// Function to handle child profile form submission
+async function handleChildProfileSubmit(e) {
+  e.preventDefault();
+  
+  const formData = new FormData(e.target);
+  const childName = formData.get('childName');
+  const childGender = formData.get('childGender');
+  const childAge = formData.get('childAge');
+  const childFavorite = formData.get('childFavorite');
+  
+  if (!childName || !childGender || !childAge || !childFavorite) {
+    alert('Please fill in all required fields');
+    return;
+  }
+  
+  try {
+    // For now, just show success message
+    // Later you can save to Supabase
+    console.log('Creating profile:', { childName, childGender, childAge, childFavorite });
+    
+    alert(`Profile created successfully for ${childName}!`);
+    hideAddChildForm();
+    
+    // Here you would typically save to database and refresh the profile list
+    // await saveChildProfile({ childName, childGender, childAge, childFavorite });
+    // await loadProfiles();
+    
+  } catch (error) {
+    console.error('Error creating profile:', error);
+    alert('Error creating profile. Please try again.');
+  }
+}
+
 // Function to add new profile
 function addNewProfile() {
-  alert('Add Child functionality will be implemented next!');
+  showAddChildForm();
 }
