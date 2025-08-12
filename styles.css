@@ -422,14 +422,16 @@ body {
 }
 
 .welcome-title {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 700;
     margin: 0;
     text-align: center;
-    line-height: 1.2;
+    line-height: 1.3;
     letter-spacing: -0.02em;
     text-shadow: 0 0 30px rgba(255, 20, 147, 0.3);
     width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .welcome-title.gradient-text {
@@ -459,27 +461,31 @@ body {
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 600;
-    margin-bottom: 2rem;
+    margin: 0;
     text-align: center;
     width: 100%;
 }
 
 .profile-container {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 25px;
     padding: 2.5rem;
-    min-height: 200px;
+    min-height: 250px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 2rem;
     box-shadow: 
-        0 0 30px rgba(255, 20, 147, 0.15),
-        0 0 60px rgba(0, 191, 255, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        0 0 40px rgba(255, 20, 147, 0.25),
+        0 0 80px rgba(0, 191, 255, 0.2),
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     position: relative;
     overflow: hidden;
 }
@@ -492,21 +498,32 @@ body {
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg, 
-        rgba(255, 20, 147, 0.05) 0%, 
-        rgba(0, 191, 255, 0.05) 50%, 
-        rgba(255, 20, 147, 0.05) 100%);
+        rgba(255, 20, 147, 0.1) 0%, 
+        rgba(0, 191, 255, 0.1) 50%, 
+        rgba(255, 20, 147, 0.1) 100%);
     border-radius: 25px;
     z-index: -1;
 }
 
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(20px)) {
+    .profile-container {
+        background: rgba(255, 255, 255, 0.25);
+        border: 2px solid rgba(255, 255, 255, 0.4);
+    }
+}
+
 .no-profiles-message {
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .no-profiles-message p {
     font-size: 1.2rem;
-    color: #b8b8b8;
+    color: #ffffff;
     margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .btn-icon {
@@ -561,6 +578,146 @@ body {
 .profile-age {
     font-size: 0.9rem;
     color: #b8b8b8;
+}
+
+/* Select Profile Section Styles */
+.select-profile-section {
+    text-align: center;
+    margin: 4rem 0 2rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.select-profile-title {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin: 0 0 2rem 0;
+    text-align: center;
+    width: 100%;
+}
+
+.profile-list-container {
+    margin-top: 0;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-profiles-message {
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.no-profiles-message p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.profile-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 20, 147, 0.3);
+    box-shadow: 0 10px 30px rgba(255, 20, 147, 0.2);
+}
+
+.profile-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff1493, #00bfff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 1rem;
+}
+
+.profile-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.profile-age {
+    font-size: 0.9rem;
+    color: #b8b8b8;
+}
+
+.add-profile-card {
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.add-profile-card:hover {
+    border-color: rgba(255, 20, 147, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Glass Box Styles */
+.glass-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 3rem;
+    min-height: 200px;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 3rem;
+    box-shadow: 
+        0 0 20px rgba(255, 20, 147, 0.1),
+        0 0 40px rgba(0, 191, 255, 0.08),
+        0 4px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 20, 147, 0.03) 0%, 
+        rgba(0, 191, 255, 0.03) 50%, 
+        rgba(255, 20, 147, 0.03) 100%);
+    border-radius: 20px;
+    z-index: -1;
 }
 
 

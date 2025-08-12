@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>STORIO - App</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=1.4" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <!-- Supabase CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -23,7 +23,7 @@
   </header>
 
   <!-- Welcome content -->
-  <main class="container" style="min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3rem; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+  <main class="container" style="min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; max-width: 1200px; margin: 0 auto; padding: 2rem; padding-top: 6rem;">
     <div class="welcome-content">
       <h1 class="welcome-title gradient-text dancing-text">
         Welcome To The World Of Storio
@@ -31,19 +31,21 @@
     </div>
     
     <!-- Select Profile Section -->
-    <div class="profile-section">
-      <h2 class="section-title gradient-text">Select Profile</h2>
-      <div class="profile-container" id="profileContainer">
+    <div class="select-profile-section">
+      <h2 class="select-profile-title gradient-text">Select Profile</h2>
+      <div class="profile-list-container" id="profileListContainer">
         <!-- Profiles will be loaded here dynamically -->
         <div class="no-profiles-message">
           <p>No child profiles found</p>
           <button class="cta-btn primary" id="addChildBtn">
             <span class="btn-icon">👶</span>
-            Add your Child
+            Add Your Child
           </button>
         </div>
       </div>
     </div>
+    
+
   </main>
 
   <script src="app.js"></script>

@@ -21,7 +21,7 @@ const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   // Profile functionality
   const addChildBtn = document.getElementById('addChildBtn');
-  const profileContainer = document.getElementById('profileContainer');
+  const profileListContainer = document.getElementById('profileListContainer');
 
   // Load existing profiles
   await loadProfiles();
@@ -35,7 +35,7 @@ const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // Function to load and display profiles
 async function loadProfiles() {
-  const profileContainer = document.getElementById('profileContainer');
+  const profileListContainer = document.getElementById('profileListContainer');
   
   try {
     // For now, we'll simulate no profiles. Later you can fetch from Supabase
@@ -43,12 +43,12 @@ async function loadProfiles() {
     
     if (profiles.length === 0) {
       // Show "Add your Child" message
-      profileContainer.innerHTML = `
+      profileListContainer.innerHTML = `
         <div class="no-profiles-message">
           <p>No child profiles found</p>
           <button class="cta-btn primary" id="addChildBtn">
             <span class="btn-icon">👶</span>
-            Add your Child
+            Add Your Child
           </button>
         </div>
       `;
@@ -65,7 +65,7 @@ async function loadProfiles() {
   } catch (error) {
     console.error('Error loading profiles:', error);
     // Show error state
-    profileContainer.innerHTML = `
+    profileListContainer.innerHTML = `
       <div class="no-profiles-message">
         <p>Error loading profiles</p>
         <button class="cta-btn primary" onclick="location.reload()">Try Again</button>
@@ -76,7 +76,7 @@ async function loadProfiles() {
 
 // Function to display profile cards
 function displayProfiles(profiles) {
-  const profileContainer = document.getElementById('profileContainer');
+  const profileListContainer = document.getElementById('profileListContainer');
   
   const profilesHTML = profiles.map(profile => `
     <div class="profile-card" onclick="selectProfile('${profile.id}')">
@@ -86,8 +86,8 @@ function displayProfiles(profiles) {
     </div>
   `).join('');
   
-  profileContainer.innerHTML = `
-    <div class="profile-cards">
+  profileListContainer.innerHTML = `
+    <div class="profile-grid">
       ${profilesHTML}
       <div class="profile-card add-profile-card" onclick="addNewProfile()">
         <div class="profile-avatar">➕</div>
