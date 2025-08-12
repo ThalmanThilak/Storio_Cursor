@@ -92,6 +92,54 @@ body {
     left: 100%;
 }
 
+/* Neon Light Separator */
+.neon-separator {
+    position: relative;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    z-index: 10;
+    width: 100%;
+}
+
+.neon-light {
+    position: absolute;
+    top: 0;
+    left: -30%;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 191, 255, 0.4) 20%, 
+        rgba(0, 191, 255, 1) 50%, 
+        rgba(0, 191, 255, 0.4) 80%, 
+        transparent 100%);
+    box-shadow: 
+        0 0 5px rgba(0, 191, 255, 0.8),
+        0 0 10px rgba(0, 191, 255, 0.6),
+        0 0 15px rgba(0, 191, 255, 0.4),
+        0 0 20px rgba(0, 191, 255, 0.2);
+    animation: neonScan 4s ease-in-out infinite;
+    border-radius: 1px;
+}
+
+@keyframes neonScan {
+    0% {
+        left: -30%;
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
 /* Hero Section */
 .hero {
     padding: 120px 0 80px;
@@ -411,8 +459,11 @@ body {
 }
 
 .cta-btn.secondary:hover {
-    background: rgba(0, 191, 255, 0.2);
-    box-shadow: 0 0 40px rgba(0, 191, 255, 0.8);
+    background: transparent;
+    box-shadow: 
+        0 0 20px rgba(0, 191, 255, 0.8),
+        0 0 40px rgba(0, 191, 255, 0.6),
+        0 0 60px rgba(0, 191, 255, 0.4);
 }
 
 .cta-btn.large {
@@ -845,8 +896,12 @@ body {
 }
 
 .cta-btn.secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.5);
+    background: transparent;
+    border-color: rgba(0, 191, 255, 0.5);
+    box-shadow: 
+        0 0 20px rgba(0, 191, 255, 0.8),
+        0 0 40px rgba(0, 191, 255, 0.6),
+        0 0 60px rgba(0, 191, 255, 0.4);
 }
 
 /* Glass Box Styles */
@@ -862,7 +917,7 @@ body {
     max-width: 800px;
     margin-top: 3rem;
     box-shadow: 
-        0 0 20px rgba(255, 20, 147, 0.1),
+        0 0 20px rgba(0, 191, 255, 0.1),
         0 0 40px rgba(0, 191, 255, 0.08),
         0 4px 16px rgba(0, 0, 0, 0.2);
     position: relative;
@@ -877,9 +932,9 @@ body {
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg, 
-        rgba(255, 20, 147, 0.03) 0%, 
+        rgba(0, 191, 255, 0.03) 0%, 
         rgba(0, 191, 255, 0.03) 50%, 
-        rgba(255, 20, 147, 0.03) 100%);
+        rgba(0, 191, 255, 0.03) 100%);
     border-radius: 20px;
     z-index: -1;
 }
@@ -945,7 +1000,7 @@ body {
 /* Testimonials Section */
 .testimonials-section {
     padding: 80px 0;
-    background: linear-gradient(135deg, rgba(255, 20, 147, 0.1) 0%, rgba(0, 191, 255, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.1) 0%, rgba(0, 191, 255, 0.1) 100%);
     overflow: hidden;
 }
 
