@@ -67,6 +67,20 @@ const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     });
   });
 
+  // Voice card selection (only one can be selected)
+  const voiceCards = document.querySelectorAll('.voice-card');
+  voiceCards.forEach(card => {
+    card.addEventListener('click', () => {
+      // Remove selected class from all voice cards
+      voiceCards.forEach(c => c.classList.remove('selected'));
+      // Add selected class to clicked card
+      card.classList.add('selected');
+      console.log('Selected voice:', card.getAttribute('data-voice'));
+    });
+  });
+
+
+
   // Generate Story button functionality
   const generateStoryBtn = document.getElementById('generateStoryBtn');
   console.log('Generate Story button found:', generateStoryBtn);
@@ -106,19 +120,85 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Simple test - add click handler immediately when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOM Content Loaded');
-  const testBtn = document.getElementById('generateStoryBtn');
-  if (testBtn) {
-    console.log('Found Generate Story button in DOMContentLoaded');
-    testBtn.onclick = () => {
-      console.log('Generate Story button clicked (DOMContentLoaded handler)');
-      window.location.href = 'generate-story.html';
-    };
-  } else {
-    console.error('Generate Story button not found in DOMContentLoaded');
+  // Load and display saved stories
+  function loadSavedStories() {
+    let savedStories = JSON.parse(localStorage.getItem('savedStories') || '[]');
+    
+    // Set dummy stories for testing (always include all three)
+    savedStories = [
+      'The Magical Adventure of Sia and the Star Catcher',
+      'The Brave Little Explorer and the Hidden Treasure',
+      'The Enchanted Garden of Dreams'
+    ];
+    localStorage.setItem('savedStories', JSON.stringify(savedStories));
+    localStorage.setItem('savedStoriesUpdated', Date.now().toString());
+    
+    const savedStoriesContent = document.querySelector('.saved-stories-content');
+    
+    if (savedStoriesContent) {
+      if (savedStories.length === 0) {
+        savedStoriesContent.innerHTML = `
+          <div style="text-align: center; color: rgba(255, 255, 255, 0.7); font-style: italic;">
+            <p>Your saved stories will appear here</p>
+            <p style="font-size: 0.9rem; margin-top: 1rem;">Stories you save with the heart button will be displayed in this section</p>
+          </div>
+        `;
+      } else {
+        const storiesList = savedStories.map(story => `
+          <div style="display: flex; align-items: center; margin-bottom: 1rem; padding: 0.5rem 0; cursor: pointer; transition: all 0.3s ease; border-radius: 8px;" 
+               onmouseover="this.style.background='rgba(0, 191, 255, 0.1)'; this.style.boxShadow='0 0 15px rgba(0, 191, 255, 0.3)'; this.style.transform='translateY(-2px)'" 
+               onmouseout="this.style.background='transparent'; this.style.boxShadow='none'; this.style.transform='translateY(0)'" 
+               onclick="navigateToStory('${story}')">
+            <span style="color: #ff0000; font-size: 1.2rem; margin-right: 0.8rem;">❤️</span>
+            <span style="color: #ffffff; font-size: 1rem;">${story}</span>
+          </div>
+        `).join('');
+        
+        savedStoriesContent.innerHTML = storiesList;
+      }
+    }
   }
-});
+
+  // Function to navigate to story page
+  window.navigateToStory = function(storyTitle) {
+    console.log('Navigating to story:', storyTitle);
+    // Store the selected story title in sessionStorage for the story page to use
+    sessionStorage.setItem('selectedStoryTitle', storyTitle);
+    // Navigate to the story generation page
+    window.location.href = 'generate-story.html';
+  };
+
+  // Load saved stories when page loads
+  loadSavedStories();
+  
+  // Check for saved stories updates when page becomes visible
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+      loadSavedStories();
+    }
+  });
+  
+  // Also check when page gains focus (for better compatibility)
+  window.addEventListener('focus', () => {
+    loadSavedStories();
+  });
+
+  // Simple test - add click handler immediately when DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM Content Loaded');
+    const testBtn = document.getElementById('generateStoryBtn');
+    if (testBtn) {
+      console.log('Found Generate Story button in DOMContentLoaded');
+      testBtn.onclick = () => {
+        console.log('Generate Story button clicked (DOMContentLoaded handler)');
+        window.location.href = 'generate-story.html';
+      };
+    } else {
+      console.error('Generate Story button not found in DOMContentLoaded');
+    }
+    
+    // Load saved stories when DOM is ready
+    loadSavedStories();
+  });
 
 

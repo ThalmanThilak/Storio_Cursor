@@ -29,18 +29,20 @@
         <h1 class="welcome-title gradient-text dancing-text" style="text-align:center;">Let's create magic !</h1>
 
         <!-- Story Settings Section -->
-        <div class="story-settings-box glass-box" style="margin-top: 2rem; width: 100%; max-width: 800px; padding: 2rem; margin-left: 0; align-self: flex-start;">
+        <div style="display: flex; gap: 2rem; width: 100%; max-width: 1200px; margin-top: 2rem; align-items: flex-start;">
+            <!-- Story Settings Box -->
+            <div class="story-settings-box glass-box" style="flex: 2; padding: 2rem; margin-left: 0; min-width: 0;">
             <h2 class="section-heading gradient-text" style="text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">Please select the story setting</h2>
             
             <!-- Favorite Toy/Character -->
             <div class="form-group" style="margin-bottom: 2rem;">
-                <label for="favoriteToy">Favorite toy/Character</label>
+                <label for="favoriteToy" style="color: #00bfff;">Favorite toy/Character</label>
                 <input type="text" id="favoriteToy" name="favoriteToy" placeholder="Enter your favorite toy or character">
             </div>
             
             <!-- Favorite Theme -->
             <div class="form-group" style="margin-bottom: 2rem;">
-                <label style="margin-bottom: 1rem; display: block;">Favorite Theme</label>
+                <label style="margin-bottom: 1rem; display: block; color: #00bfff;">Favorite Theme</label>
                 <div class="theme-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 0.8rem;">
                     <div class="theme-card" data-theme="Friendship">
                         <div class="card-content">
@@ -83,7 +85,7 @@
             
             <!-- Favorite Genre -->
             <div class="form-group" style="margin-bottom: 2rem;">
-                <label style="margin-bottom: 1rem; display: block;">Favorite Genre</label>
+                <label style="margin-bottom: 1rem; display: block; color: #00bfff;">Favorite Genre</label>
                 <div class="genre-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 0.8rem;">
                     <div class="genre-card" data-genre="Folklore">
                         <div class="card-content">
@@ -124,16 +126,56 @@
                 </div>
             </div>
             
+            <!-- Voice Selection -->
+            <div class="form-group" style="margin-bottom: 2rem;">
+                <label style="margin-bottom: 1rem; display: block; color: #00bfff;">Select Voice</label>
+                <div class="voice-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 0.8rem;">
+                    <div class="voice-card" data-voice="Mom">
+                        <div class="card-content">
+                            <div class="card-icon">👩</div>
+                            <div class="card-text">Mom's Voice</div>
+                        </div>
+                    </div>
+                    <div class="voice-card" data-voice="Dad">
+                        <div class="card-content">
+                            <div class="card-icon">👨</div>
+                            <div class="card-text">Dad's Voice</div>
+                        </div>
+                    </div>
+                    <div class="voice-card" data-voice="Grandpa">
+                        <div class="card-content">
+                            <div class="card-icon">👴</div>
+                            <div class="card-text">Grandpa's Voice</div>
+                        </div>
+                    </div>
+                    <div class="voice-card" data-voice="Grandma">
+                        <div class="card-content">
+                            <div class="card-icon">👵</div>
+                            <div class="card-text">Grandma's Voice</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <!-- Action Buttons -->
             <div class="action-buttons" style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
                 <button class="cta-btn primary" id="generateStoryBtn" onclick="window.location.href='generate-story.html';">
                     <span class="btn-icon">📖</span>
                     Generate Story
                 </button>
-                <button class="cta-btn secondary" id="selectVoiceBtn">
-                    <span class="btn-icon">🎤</span>
-                    Select Voice
-                </button>
+            </div>
+            
+            <!-- Saved Stories Box -->
+            <div class="saved-stories-box glass-box" style="flex: 1; padding: 2rem; position: relative; min-width: 300px; border: 2px solid rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-radius: 20px; box-shadow: 0 0 20px rgba(0, 191, 255, 0.1), 0 0 40px rgba(0, 191, 255, 0.08), 0 4px 16px rgba(0, 0, 0, 0.2);">
+                <h2 class="section-heading gradient-text" style="text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">Saved Stories</h2>
+                
+                <!-- Saved Stories Content -->
+                <div class="saved-stories-content" style="background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 1.5rem; min-height: 400px;">
+                    <div style="text-align: center; color: rgba(255, 255, 255, 0.7); font-style: italic;">
+                        <p>Your saved stories will appear here</p>
+                        <p style="font-size: 0.9rem; margin-top: 1rem;">Stories you save with the heart button will be displayed in this section</p>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

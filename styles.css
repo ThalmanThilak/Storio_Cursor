@@ -1721,7 +1721,8 @@ body {
 
 /* Theme and Genre Card Styles */
 .theme-card,
-.genre-card {
+.genre-card,
+.voice-card {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
@@ -1736,7 +1737,8 @@ body {
 }
 
 .theme-card:hover,
-.genre-card:hover {
+.genre-card:hover,
+.voice-card:hover {
     transform: translateY(-3px);
     background: rgba(255, 255, 255, 0.12);
     border-color: rgba(255, 20, 147, 0.3);
@@ -1744,7 +1746,8 @@ body {
 }
 
 .theme-card.selected,
-.genre-card.selected {
+.genre-card.selected,
+.voice-card.selected {
     background: rgba(255, 20, 147, 0.15);
     border-color: rgba(255, 20, 147, 0.5);
     box-shadow: 0 0 20px rgba(255, 20, 147, 0.4);
