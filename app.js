@@ -192,8 +192,6 @@ async function handleChildProfileSubmit(e) {
     console.log('Total profiles after adding:', window.profiles.length);
     console.log('All profiles:', window.profiles);
     
-    // Show success message
-    alert(`Profile created successfully for ${childName}!`);
     hideAddChildForm();
     
     // Refresh the profile display

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STORIO - Bedtime Stories for Kids</title>
-    <link rel="stylesheet" href="styles.css?v=3.7">
+    <link rel="stylesheet" href="styles.css?v=4.2">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Supabase CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -367,7 +367,9 @@
                         <label class="checkbox-label">
                             <input type="checkbox" name="terms" required>
                             <span class="checkmark"></span>
-                            I agree to the <a href="#" class="gradient-text">Terms of Service</a> and <a href="#" class="gradient-text">Privacy Policy</a>
+                            <span class="terms-text">
+                                I agree to the <a href="#" class="gradient-text" id="termsLink">Terms of Service</a> and <a href="#" class="gradient-text" id="privacyLink">Privacy Policy</a>
+                            </span>
                         </label>
                     </div>
                     <button type="submit" class="popup-btn primary">Create Account</button>
@@ -375,6 +377,83 @@
                 
                 <div class="signup-link">
                     <p>Already have an account? <a href="#" class="gradient-text" id="switchToSignIn">Sign In</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Popup -->
+    <div class="popup-overlay" id="termsPopup">
+        <div class="popup-container terms-popup">
+            <div class="popup-header">
+                <h2 class="popup-title">Terms of Service</h2>
+                <button class="popup-close" id="closeTermsPopup">&times;</button>
+            </div>
+            <div class="popup-content">
+                <div class="terms-content">
+                    <h3>1. Acceptance of Terms</h3>
+                    <p>By accessing and using STORIO, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                    
+                    <h3>2. Use License</h3>
+                    <p>Permission is granted to temporarily download one copy of STORIO for personal, non-commercial transitory viewing only.</p>
+                    
+                    <h3>3. Disclaimer</h3>
+                    <p>The materials on STORIO are provided on an 'as is' basis. STORIO makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
+                    
+                    <h3>4. Limitations</h3>
+                    <p>In no event shall STORIO or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use STORIO.</p>
+                    
+                    <h3>5. Revisions and Errata</h3>
+                    <p>The materials appearing on STORIO could include technical, typographical, or photographic errors. STORIO does not warrant that any of the materials on its website are accurate, complete or current.</p>
+                    
+                    <h3>6. Links</h3>
+                    <p>STORIO has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site.</p>
+                    
+                    <h3>7. Modifications</h3>
+                    <p>STORIO may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these Terms of Service.</p>
+                    
+                    <h3>8. Governing Law</h3>
+                    <p>These terms and conditions are governed by and construed in accordance with the laws and you irrevocably submit to the exclusive jurisdiction of the courts in that location.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Popup -->
+    <div class="popup-overlay" id="privacyPopup">
+        <div class="popup-container privacy-popup">
+            <div class="popup-header">
+                <h2 class="popup-title">Privacy Policy</h2>
+                <button class="popup-close" id="closePrivacyPopup">&times;</button>
+            </div>
+            <div class="popup-content">
+                <div class="privacy-content">
+                    <h3>1. Information We Collect</h3>
+                    <p>We collect information you provide directly to us, such as when you create an account, subscribe to our newsletter, or contact us for support.</p>
+                    
+                    <h3>2. How We Use Your Information</h3>
+                    <p>We use the information we collect to provide, maintain, and improve our services, to communicate with you, and to develop new features.</p>
+                    
+                    <h3>3. Information Sharing</h3>
+                    <p>We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy.</p>
+                    
+                    <h3>4. Data Security</h3>
+                    <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+                    
+                    <h3>5. Children's Privacy</h3>
+                    <p>We are committed to protecting the privacy of children. We do not knowingly collect personal information from children under 13 without parental consent.</p>
+                    
+                    <h3>6. Cookies and Tracking</h3>
+                    <p>We use cookies and similar tracking technologies to enhance your experience and collect information about how you use our service.</p>
+                    
+                    <h3>7. Third-Party Services</h3>
+                    <p>Our service may contain links to third-party websites or services. We are not responsible for the privacy practices of these third parties.</p>
+                    
+                    <h3>8. Changes to This Policy</h3>
+                    <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page.</p>
+                    
+                    <h3>9. Contact Us</h3>
+                    <p>If you have any questions about this privacy policy, please contact us at privacy@storio.com</p>
                 </div>
             </div>
         </div>

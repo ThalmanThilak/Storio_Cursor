@@ -323,6 +323,56 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Terms and Privacy Popup functionality
+    const termsLink = document.getElementById('termsLink');
+    const privacyLink = document.getElementById('privacyLink');
+    const termsPopup = document.getElementById('termsPopup');
+    const privacyPopup = document.getElementById('privacyPopup');
+    const closeTermsPopup = document.getElementById('closeTermsPopup');
+    const closePrivacyPopup = document.getElementById('closePrivacyPopup');
+
+    // Open Terms of Service popup
+    termsLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        openPopup(termsPopup);
+    });
+
+    // Open Privacy Policy popup
+    privacyLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        openPopup(privacyPopup);
+    });
+
+    // Close Terms popup
+    closeTermsPopup.addEventListener('click', () => {
+        closeAllPopups();
+    });
+
+    // Close Privacy popup
+    closePrivacyPopup.addEventListener('click', () => {
+        closeAllPopups();
+    });
+
+    // Close popups when clicking outside
+    termsPopup.addEventListener('click', (e) => {
+        if (e.target === termsPopup) {
+            closeAllPopups();
+        }
+    });
+
+    privacyPopup.addEventListener('click', (e) => {
+        if (e.target === privacyPopup) {
+            closeAllPopups();
+        }
+    });
+
+    // Close terms and privacy popups with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && (termsPopup.classList.contains('active') || privacyPopup.classList.contains('active'))) {
+            closeAllPopups();
+        }
+    });
+
     // Switch between popups
     switchToSignUp.addEventListener('click', (e) => {
         e.preventDefault();
