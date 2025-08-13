@@ -123,8 +123,14 @@ function displayProfiles(profiles) {
 // Function to select a profile
 function selectProfile(profileId) {
   console.log('Selected profile:', profileId);
-  // Implement profile selection logic
-  alert(`Selected profile: ${profileId}`);
+  try {
+    // Persist selected profile for later use
+    sessionStorage.setItem('selectedProfileId', String(profileId));
+  } catch (err) {
+    console.warn('Unable to persist selected profile id to sessionStorage:', err);
+  }
+  // Navigate to a new blank page for the profile
+  window.location.href = `profile.html?id=${encodeURIComponent(profileId)}`;
 }
 
 // Function to show add child form
