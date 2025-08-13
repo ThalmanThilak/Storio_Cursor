@@ -94,11 +94,11 @@ function displayProfiles(profiles) {
   const profileListContainer = document.getElementById('profileListContainer');
   
   const profilesHTML = profiles.map(profile => `
-    <a class="profile-card profile-card-link" href="profile.html?id=${profile.id}" data-profile-id="${profile.id}">
+    <div class="profile-card" onclick="selectProfile('${profile.id}')">
       <div class="profile-avatar">${profile.avatar}</div>
       <div class="profile-name">${profile.name}</div>
       <div class="profile-age">${profile.age} years old</div>
-    </a>
+    </div>
   `).join('');
   
   profileListContainer.innerHTML = `
@@ -117,15 +117,6 @@ function displayProfiles(profiles) {
   const newAddChildBtn = document.getElementById('addChildBtn');
   newAddChildBtn?.addEventListener('click', () => {
     showAddChildForm();
-  });
-
-  // Attach click handlers to set session and allow default navigation
-  const profileLinks = document.querySelectorAll('.profile-card-link');
-  profileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      const id = link.getAttribute('data-profile-id') || '';
-      try { sessionStorage.setItem('selectedProfileId', id); } catch {}
-    });
   });
 }
 

@@ -4,25 +4,149 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>STORIO - Profile</title>
-    <link rel="stylesheet" href="styles.css?v=4.2" />
+    <link rel="stylesheet" href="styles.css?v=4.4" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <header class="header">
-        <div class="container header-container">
-            <div class="logo"> STORIO</div>
-            <nav class="nav">
-                <button id="signOutBtnProfile" class="cta-btn secondary">Sign Out</button>
-            </nav>
+        <div class="header-content">
+            <div class="logo">
+                <h1>STORIO</h1>
+            </div>
+            <div class="header-actions">
+                <button id="signOutBtn" class="demo-btn">Sign Out</button>
+            </div>
         </div>
     </header>
 
     <div class="neon-separator"><div class="neon-light"></div></div>
 
-    <main class="container" style="min-height: 60vh; display: flex; align-items: center; justify-content: center; padding-top: 4rem;">
-        <h1 class="welcome-title" style="text-align:center;">Profile Page</h1>
+    <!-- Back arrow button (below header) -->
+    <button id="backArrow" class="back-arrow-btn" aria-label="Back to Select Profile">&#8592;</button>
+
+    <main class="container" style="min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 6rem;">
+        <h1 class="welcome-title gradient-text dancing-text" style="text-align:center;">Let's create magic !</h1>
+
+        <!-- Story Settings Section -->
+        <div class="story-settings-box glass-box" style="margin-top: 2rem; width: 100%; max-width: 800px; padding: 2rem; margin-left: 0; align-self: flex-start;">
+            <h2 class="section-heading gradient-text" style="text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">Please select the story setting</h2>
+            
+            <!-- Favorite Toy/Character -->
+            <div class="form-group" style="margin-bottom: 2rem;">
+                <label for="favoriteToy">Favorite toy/Character</label>
+                <input type="text" id="favoriteToy" name="favoriteToy" placeholder="Enter your favorite toy or character">
+            </div>
+            
+            <!-- Favorite Theme -->
+            <div class="form-group" style="margin-bottom: 2rem;">
+                <label style="margin-bottom: 1rem; display: block;">Favorite Theme</label>
+                <div class="theme-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 0.8rem;">
+                    <div class="theme-card" data-theme="Friendship">
+                        <div class="card-content">
+                            <div class="card-icon">🤝</div>
+                            <div class="card-text">Friendship</div>
+                        </div>
+                    </div>
+                    <div class="theme-card" data-theme="Nature">
+                        <div class="card-content">
+                            <div class="card-icon">🌿</div>
+                            <div class="card-text">Nature</div>
+                        </div>
+                    </div>
+                    <div class="theme-card" data-theme="Creative">
+                        <div class="card-content">
+                            <div class="card-icon">🎨</div>
+                            <div class="card-text">Creative</div>
+                        </div>
+                    </div>
+                    <div class="theme-card" data-theme="Culture">
+                        <div class="card-content">
+                            <div class="card-icon">🏛️</div>
+                            <div class="card-text">Culture</div>
+                        </div>
+                    </div>
+                    <div class="theme-card" data-theme="Family">
+                        <div class="card-content">
+                            <div class="card-icon">👨‍👩‍👧‍👦</div>
+                            <div class="card-text">Family</div>
+                        </div>
+                    </div>
+                    <div class="theme-card" data-theme="Sci-Fi">
+                        <div class="card-content">
+                            <div class="card-icon">🚀</div>
+                            <div class="card-text">Sci-Fi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Favorite Genre -->
+            <div class="form-group" style="margin-bottom: 2rem;">
+                <label style="margin-bottom: 1rem; display: block;">Favorite Genre</label>
+                <div class="genre-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 0.8rem;">
+                    <div class="genre-card" data-genre="Folklore">
+                        <div class="card-content">
+                            <div class="card-icon">🧙‍♀️</div>
+                            <div class="card-text">Folklore</div>
+                        </div>
+                    </div>
+                    <div class="genre-card" data-genre="Space">
+                        <div class="card-content">
+                            <div class="card-icon">🌌</div>
+                            <div class="card-text">Space</div>
+                        </div>
+                    </div>
+                    <div class="genre-card" data-genre="Mystery">
+                        <div class="card-content">
+                            <div class="card-icon">🔍</div>
+                            <div class="card-text">Mystery</div>
+                        </div>
+                    </div>
+                    <div class="genre-card" data-genre="Moral">
+                        <div class="card-content">
+                            <div class="card-icon">💡</div>
+                            <div class="card-text">Moral</div>
+                        </div>
+                    </div>
+                    <div class="genre-card" data-genre="Festival">
+                        <div class="card-content">
+                            <div class="card-icon">🎉</div>
+                            <div class="card-text">Festival</div>
+                        </div>
+                    </div>
+                    <div class="genre-card" data-genre="History">
+                        <div class="card-content">
+                            <div class="card-icon">📚</div>
+                            <div class="card-text">History</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="action-buttons" style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
+                <button class="cta-btn primary" id="generateStoryBtn" onclick="window.location.href='generate-story.html';">
+                    <span class="btn-icon">📖</span>
+                    Generate Story
+                </button>
+                <button class="cta-btn secondary" id="selectVoiceBtn">
+                    <span class="btn-icon">🎤</span>
+                    Select Voice
+                </button>
+            </div>
+        </div>
     </main>
+
+    <!-- Spacing before footer -->
+    <div style="height: 3rem;"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 STORIO. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="profile.js"></script>
 </body>

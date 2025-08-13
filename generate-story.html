@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STORIO - Generate Story</title>
+    <link rel="stylesheet" href="styles.css?v=4.6" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>STORIO</h1>
+            </div>
+            <div class="header-actions">
+                <button id="signOutBtn" class="demo-btn">Sign Out</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="neon-separator"><div class="neon-light"></div></div>
+
+    <!-- Back arrow button (below header) -->
+    <button id="backArrow" class="back-arrow-btn" aria-label="Back to Story Settings">&#8592;</button>
+
+    <main class="container" style="min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 6rem;">
+        <h1 class="welcome-title gradient-text dancing-text" style="text-align:center;">Story Generation</h1>
+
+        <!-- Story Generation Content -->
+        <div class="story-generation-box glass-box" style="margin-top: 2rem; width: 100%; max-width: 800px; padding: 2rem; position: relative;">
+            <!-- Heart Save Button -->
+            <button id="heartSaveBtn" class="heart-save-btn" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 2rem; cursor: pointer; color: #ffffff; transition: all 0.3s ease; z-index: 10;">🤍</button>
+            
+            <h2 class="section-heading gradient-text" style="text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">The Magical Adventure of Luna and the Star Catcher</h2>
+            
+            <!-- Story Content -->
+            <div class="story-content" style="background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 2rem; margin-bottom: 2rem; line-height: 1.8;">
+                <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 1.5rem; font-size: 1.1rem;">
+                    Once upon a time, in a cozy little house at the edge of a magical forest, lived a brave little girl named Luna. Luna had the most wonderful collection of stuffed animals, but her favorite was a fluffy white bunny named Star Catcher.
+                </p>
+                
+                <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 1.5rem; font-size: 1.1rem;">
+                    Every night, Luna would look out her window and wish upon the twinkling stars. She dreamed of having a real adventure with her beloved Star Catcher. One magical evening, as the moon shone brightly in the sky, something extraordinary happened.
+                </p>
+                
+                <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 1.5rem; font-size: 1.1rem;">
+                    A shooting star streaked across the night sky, and suddenly, Star Catcher began to glow with a soft, magical light! The bunny's eyes sparkled like diamonds, and Luna knew that tonight would be the night of their grand adventure.
+                </p>
+                
+                <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 1.5rem; font-size: 1.1rem;">
+                    Together, Luna and Star Catcher tiptoed out of the house and into the enchanted forest. The trees whispered ancient secrets, and fireflies danced around them like tiny lanterns. They discovered a hidden path that led to a magical clearing where all the forest animals gathered for a midnight feast.
+                </p>
+                
+                <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 1.5rem; font-size: 1.1rem;">
+                    The wise old owl told them stories of friendship and courage, while the playful squirrels shared their acorn treasures. Luna and Star Catcher made new friends and learned that the greatest magic of all was the love they shared with each other.
+                </p>
+                
+                <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.1rem;">
+                    As the first light of dawn appeared, Luna and Star Catcher returned home, their hearts full of joy and wonder. From that night on, every bedtime became an opportunity for new magical adventures, and Luna knew that with Star Catcher by her side, anything was possible.
+                </p>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="action-buttons" style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
+                <button class="cta-btn primary" id="regenerateStoryBtn">
+                    <span class="btn-icon">📚</span>
+                    Try New Story
+                </button>
+                <button class="cta-btn secondary" id="selectVoiceBtn">
+                    <span class="btn-icon">🎤</span>
+                    Select Voice
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Spacing before footer -->
+    <div style="height: 3rem;"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 STORIO. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="generate-story.js"></script>
+</body>
+</html>

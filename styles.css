@@ -123,6 +123,66 @@ body {
     border-radius: 1px;
 }
 
+/* Back arrow button (profile page) */
+.back-arrow-btn {
+    position: fixed;
+    top: 100px; /* moved one line lower below header/separator */
+    left: 16px;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(15, 15, 35, 0.7);
+    color: #ffffff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.back-arrow-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.45);
+    background: rgba(15, 15, 35, 0.9);
+}
+
+/* Heart save button styles */
+.heart-save-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.heart-save-btn:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.8));
+}
+
+.heart-save-btn.saved {
+    color: #ff1493;
+    animation: heartBeat 0.6s ease-in-out;
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+}
+
 @keyframes neonScan {
     0% {
         left: -30%;
@@ -443,10 +503,10 @@ body {
 }
 
 .cta-btn.secondary {
-    background: transparent;
-    color: #00bfff;
-    border: 2px solid #00bfff;
-    box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+    background: transparent !important;
+    color: #00bfff !important;
+    border: 2px solid #00bfff !important;
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.3) !important;
 }
 
 .cta-btn:hover {
@@ -455,15 +515,18 @@ body {
 
 .cta-btn.primary:hover {
     background: rgba(255, 20, 147, 0.1);
-    box-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
+    box-shadow: 
+        0 0 20px rgba(255, 20, 147, 0.8),
+        0 0 40px rgba(255, 20, 147, 0.6),
+        0 0 60px rgba(255, 20, 147, 0.4);
 }
 
 .cta-btn.secondary:hover {
-    background: transparent;
+    background: transparent !important;
     box-shadow: 
         0 0 20px rgba(0, 191, 255, 0.8),
         0 0 40px rgba(0, 191, 255, 0.6),
-        0 0 60px rgba(0, 191, 255, 0.4);
+        0 0 60px rgba(0, 191, 255, 0.4) !important;
 }
 
 .cta-btn.large {
@@ -605,8 +668,6 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: center;
-    text-decoration: none;
-    display: block;
 }
 
 .profile-card:hover {
@@ -1656,4 +1717,55 @@ body {
 .terms-content p:last-child,
 .privacy-content p:last-child {
     margin-bottom: 0;
+}
+
+/* Theme and Genre Card Styles */
+.theme-card,
+.genre-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-card:hover,
+.genre-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 20, 147, 0.3);
+    box-shadow: 0 8px 25px rgba(255, 20, 147, 0.2);
+}
+
+.theme-card.selected,
+.genre-card.selected {
+    background: rgba(255, 20, 147, 0.15);
+    border-color: rgba(255, 20, 147, 0.5);
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.4);
+    transform: translateY(-2px);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #ffffff;
+    text-align: center;
 }
